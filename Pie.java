@@ -25,12 +25,24 @@ public class Pie {
 			  for(int pie=0;pie<pies;pie++) {
 				  costs[day][pie]=Integer.parseInt(arraysofCosts[pie]);
 			  }
+			  Arrays.sort(costs[day]);
 		  }
-		  for(int day=0;day<days;day++) {
-			  for(int pie=0;pie<pies;pie++) {
-				  System.out.println(costs[day][pie]);
+		  int countArray[]=new int[days];
+		  long total=0;
+		  int count=0;
+		  int min=costs[0][0];
+		  for(int pie=0;pie<days;) {
+			  int getDay=0;
+			  for(int day=0;day<days;day++) {
+				  if(costs[days][pie+countArray[day]]+2*countArray[day]-1<min) {
+					  min=costs[days][pie+countArray[day]]+2*countArray[day]-1;
+					  getDay=day;
+				  }
+			  }
+				  countArray[getDay]++;		  	
+				  total+=min;		  	
 		  }
-		  }	   
-	  }	
+		  
+		  }	   	
 	  }
 }	 
