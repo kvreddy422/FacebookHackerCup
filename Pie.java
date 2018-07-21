@@ -32,8 +32,10 @@ public class Pie {
 		  int count=0;
 		  for(int pie=0;pie<days;pie++) {
 			  int getDay=0;
-			  int min=costs[0][0]+1;
+			  long min=100000000;
 			  for(int day=0;day<days;day++) {
+				  if(countArray[day]>=pies)
+					  continue;
 				  if(costs[day][pie+countArray[day]]+2*countArray[day]+1<min) {
 					  min=costs[day][pie+countArray[day]]+2*countArray[day]+1;
 					  getDay=day;
