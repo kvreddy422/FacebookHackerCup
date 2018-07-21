@@ -18,7 +18,7 @@ public class Pie {
 		  String array[]=getN_M.split(" ");
 		  int days = Integer.parseInt(array[0]);
 		  int pies = Integer.parseInt(array[1]);
-		  int costs[][] =new int[days][pies];
+		  long costs[][] =new long[days][pies];
 		  for(int day=0;day<days;day++) {
 			  String arrayCosts=br.readLine();
 			  String arraysofCosts[]=arrayCosts.split(" ");
@@ -36,15 +36,15 @@ public class Pie {
 			  for(int day=0;day<days;day++) {
 				  if(countArray[day]>=pies)
 					  continue;
-				  if(costs[day][pie+countArray[day]]+2*countArray[day]+1<min) {
-					  min=costs[day][pie+countArray[day]]+2*countArray[day]+1;
+				  if(costs[day][0+countArray[day]]+2*countArray[day]+1<min) {
+					  min=costs[day][0+countArray[day]]+2*countArray[day]+1;
 					  getDay=day;
 				  }
 			  }
 				  countArray[getDay]++;		  	
 				  total+=min;		  	
 		  }
-		  System.out.println("Case #"+i+": "+total);
+		  System.out.println("Case #"+(i+1)+": "+total);
 		  }	   	
 	  }
 }	 
